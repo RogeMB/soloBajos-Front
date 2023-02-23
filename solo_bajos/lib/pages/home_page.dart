@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solo_bajos/blocs/authentication/authentication.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
     final authBloc = BlocProvider.of<AuthenticationBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
       ),
       body: SafeArea(
         minimum: const EdgeInsets.all(16),
@@ -24,30 +25,30 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Welcome, ${user.fullName}',
-                style: TextStyle(
-                  fontSize: 24
-                ),
+                style: const TextStyle(fontSize: 24),
               ),
               const SizedBox(
                 height: 12,
               ),
               ElevatedButton(
-                //textColor: Theme.of(context).primaryColor,
-                /*style: TextButton.styleFrom(
-                  primary: Theme.of(context).primaryColor,
-                ),*/
-                child: Text('Logout'),
-                onPressed: (){
+                style: TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).primaryColor,
+                ),
+                child: const Text('Logout'),
+                onPressed: () {
                   authBloc.add(UserLoggedOut());
                 },
               ),
-              ElevatedButton(onPressed: () async {
-                print("Check");
-                JwtAuthenticationService service = getIt<JwtAuthenticationService>();
-                await service.getCurrentUser();
-              }
-              , child: Text('Check')
-              )
+              ElevatedButton(
+                  onPressed: () async {
+                    if (kDebugMode) {
+                      print("Check");
+                    }
+                    JwtAuthenticationService service =
+                        getIt<JwtAuthenticationService>();
+                    await service.getCurrentUser();
+                  },
+                  child: const Text('Check'))
             ],
           ),
         ),

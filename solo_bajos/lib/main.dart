@@ -5,36 +5,28 @@ import 'package:solo_bajos/blocs/blocs.dart';
 import 'package:solo_bajos/services/services.dart';
 import 'package:solo_bajos/pages/pages.dart';
 
-
-
 void main() {
   //WidgetsFlutterBinding.ensureInitialized();
   //await SharedPreferences.getInstance();
   setupAsyncDependencies();
   configureDependencies();
   //await getIt.allReady();
-  
-    
-    runApp(BlocProvider<AuthenticationBloc>(
-        create: (context) {
-          //GlobalContext.ctx = context;
-          final authService = getIt<JwtAuthenticationService>();
-          return AuthenticationBloc(authService)..add(AppLoaded());
-        },
-        child: MyApp(),
-      ));
 
+  runApp(BlocProvider<AuthenticationBloc>(
+    create: (context) {
+      //GlobalContext.ctx = context;
+      final authService = getIt<JwtAuthenticationService>();
+      return AuthenticationBloc(authService)..add(AppLoaded());
+    },
+    child: MyApp(),
+  ));
 }
 
 class GlobalContext {
-  
   static late BuildContext ctx;
-
 }
 
-
 class MyApp extends StatelessWidget {
-
   //static late  AuthenticationBloc _authBloc;
 
   static late MyApp _instance;
@@ -63,9 +55,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //GlobalContext.ctx = context;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Authentication Demo',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.brown,
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
