@@ -9,7 +9,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Center(child: Text('Solo Bajos')),
+        titleTextStyle: const TextStyle(fontSize: 35),
       ),
       body: SafeArea(
           minimum: const EdgeInsets.all(16),
@@ -19,7 +20,8 @@ class LoginPage extends StatelessWidget {
               if (state is AuthenticationNotAuthenticated) {
                 return _AuthForm();
               }
-              if (state is AuthenticationFailure || state is SessionExpiredState) {
+              if (state is AuthenticationFailure ||
+                  state is SessionExpiredState) {
                 var msg = (state as AuthenticationFailure).message;
                 return Center(
                     child: Column(
@@ -38,7 +40,7 @@ class LoginPage extends StatelessWidget {
                 ));
               }
               // return splash screen
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                 ),
@@ -83,7 +85,8 @@ class __SignInFormState extends State<_SignInForm> {
 
     _onLoginButtonPressed() {
       if (_key.currentState!.validate()) {
-        _loginBloc.add(LoginInWithEmailButtonPressed(email: _emailController.text, password: _passwordController.text));
+        _loginBloc.add(LoginInWithEmailButtonPressed(
+            email: _emailController.text, password: _passwordController.text));
       } else {
         setState(() {
           _autoValidate = true;
@@ -106,14 +109,16 @@ class __SignInFormState extends State<_SignInForm> {
           }
           return Form(
             key: _key,
-            autovalidateMode: _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
+            autovalidateMode: _autoValidate
+                ? AutovalidateMode.always
+                : AutovalidateMode.disabled,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Email address',
+                    decoration: const InputDecoration(
+                      labelText: 'Username',
                       filled: true,
                       isDense: true,
                     ),
@@ -122,16 +127,16 @@ class __SignInFormState extends State<_SignInForm> {
                     autocorrect: false,
                     validator: (value) {
                       if (value == null) {
-                        return 'Email is required.';
+                        return 'Username is required.';
                       }
                       return null;
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                       filled: true,
                       isDense: true,
@@ -149,13 +154,15 @@ class __SignInFormState extends State<_SignInForm> {
                     height: 16,
                   ),
                   //RaisedButton(
-                  ElevatedButton(  
+                  ElevatedButton(
+                    autofocus: true,
+                    onPressed:
+                        state is LoginLoading ? () {} : _onLoginButtonPressed,
                     //color: Theme.of(context).primaryColor,
                     //textColor: Colors.white,
                     //padding: const EdgeInsets.all(16),
                     //shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0)),
-                    child: Text('LOG IN'),
-                    onPressed: state is LoginLoading ? () {} : _onLoginButtonPressed,
+                    child: const Text('LOG IN'),
                   )
                 ],
               ),
@@ -173,7 +180,5 @@ class __SignInFormState extends State<_SignInForm> {
     ));*/
 
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error)));
-
-
   }
 }
