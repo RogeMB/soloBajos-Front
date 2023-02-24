@@ -9,15 +9,16 @@ ___
 
 ## FRONTEND de SOLOBAJOS con **FLUTTER**.
 ---
+BACK:
 
-
+[SoloBajos - BACK ](https://github.com/RogeMB/soloBajos-Back)
 ---
 ## **Arranque**
 
 
 
 Realiza un *git clone* de la siguiente dirección: 
-*https://github.com/RogeMB/soloBajos-Back*
+*https://github.com/RogeMB/soloBajos-Front*
 
 ```console
 git https://github.com/RogeMB/soloBajos-Front.git
@@ -25,7 +26,7 @@ git https://github.com/RogeMB/soloBajos-Front.git
 
 Dirígete hasta la carpeta:
 
-> cd ./Trianafy/
+> cd ./soloBajos-Front/
 
 
 **Primero** tienes que tener instalado Apache Maven y sería recomendable tener alguna IDE, como **Intellij IDEA** o **VisualStudio Code**
