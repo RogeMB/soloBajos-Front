@@ -1,9 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solo_bajos/blocs/authentication/authentication.dart';
-import 'package:solo_bajos/config/locator.dart';
-import 'package:solo_bajos/services/services.dart';
 import '../models/models.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +13,7 @@ class HomePage extends StatelessWidget {
     final authBloc = BlocProvider.of<AuthenticationBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text('User Page'),
       ),
       body: SafeArea(
         minimum: const EdgeInsets.all(16),
@@ -24,31 +21,52 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                'Welcome, ${user.fullName}',
+                'Bienvenido, ${user.fullName}',
                 style: const TextStyle(fontSize: 24),
               ),
+              Text('${user.avatar}',
+                  style: TextStyle(
+                      color: const Color.fromARGB(220, 19, 18, 18)
+                          .withOpacity(0.6),
+                      fontWeight: FontWeight.bold)),
+              Text('${user.enabled}',
+                  style: TextStyle(
+                      color: const Color.fromARGB(220, 19, 18, 18)
+                          .withOpacity(0.6),
+                      fontWeight: FontWeight.bold)),
+              Text('${user.username}',
+                  style: TextStyle(
+                      color: const Color.fromARGB(220, 19, 18, 18)
+                          .withOpacity(0.6),
+                      fontWeight: FontWeight.bold)),
+              Text('${user.roles}',
+                  style: TextStyle(
+                      color: const Color.fromARGB(220, 19, 18, 18)
+                          .withOpacity(0.6),
+                      fontWeight: FontWeight.bold)),
+              Text('${user.createdAt}',
+                  style: TextStyle(
+                      color: const Color.fromARGB(220, 19, 18, 18)
+                          .withOpacity(0.6),
+                      fontWeight: FontWeight.bold)),
               const SizedBox(
-                height: 12,
+                height: 20,
               ),
               ElevatedButton(
                 style: TextButton.styleFrom(
                   foregroundColor: Theme.of(context).primaryColor,
                 ),
-                child: const Text('Logout'),
+                child: Text(
+                  'Logout',
+                  style: TextStyle(
+                      color: const Color.fromARGB(255, 238, 238, 238)
+                          .withOpacity(0.9),
+                      fontWeight: FontWeight.bold),
+                ),
                 onPressed: () {
                   authBloc.add(UserLoggedOut());
                 },
-              ),
-              ElevatedButton(
-                  onPressed: () async {
-                    if (kDebugMode) {
-                      print("Check");
-                    }
-                    JwtAuthenticationService service =
-                        getIt<JwtAuthenticationService>();
-                    await service.getCurrentUser();
-                  },
-                  child: const Text('Check'))
+              )
             ],
           ),
         ),

@@ -21,6 +21,6 @@ class AuthenticationRepository {
 
     var jsonResponse = await _client.post(
         url, LoginRequest(username: username, password: password));
-    return LoginResponse.fromJson(jsonDecode(jsonResponse));
+    return LoginResponse.fromJson(jsonResponse);
   }
 }

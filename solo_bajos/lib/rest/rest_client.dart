@@ -70,7 +70,6 @@ class RestClient {
       final response = await _httpClient.post(uri, body: jsonEncode(body));
       var responseJson = _response(response);
       return responseJson;
-
       /*} on SocketException catch(ex) {
       throw FetchDataException('No internet connection: ${ex.message}');
     }*/
@@ -83,12 +82,10 @@ class RestClient {
     switch (response.statusCode) {
       case 200:
       case 201:
-        var responseJson =
-            jsonDecode(utf8.decode(response.bodyBytes))['message'];
+        var responseJson = jsonDecode(utf8.decode(response.bodyBytes));
         return responseJson;
       case 204:
-        var responseJson =
-            jsonDecode(utf8.decode(response.bodyBytes))['message'];
+        var responseJson = jsonDecode(utf8.decode(response.bodyBytes));
         return responseJson;
       case 400:
         String message = jsonDecode(utf8.decode(response.bodyBytes))['message'];

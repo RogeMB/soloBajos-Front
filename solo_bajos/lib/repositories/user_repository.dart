@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:solo_bajos/config/locator.dart';
-import 'package:solo_bajos/models/login.dart';
 import 'package:solo_bajos/models/user.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,6 +18,6 @@ class UserRepository {
     String url = "/user/profile";
 
     var jsonResponse = await _client.get(url);
-    return User.fromJson(jsonDecode(jsonResponse));
+    return User.fromJson(jsonResponse);
   }
 }

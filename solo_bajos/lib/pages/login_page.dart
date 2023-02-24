@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solo_bajos/config/locator.dart';
-import 'package:solo_bajos/widgets/auth_background.dart';
-import 'package:solo_bajos/widgets/cart_container.dart';
+import 'package:solo_bajos/widgets/widgets.dart';
 import '../blocs/blocs.dart';
 import '../services/services.dart';
 import '../utils/input_decorations.dart';
@@ -73,9 +72,7 @@ class Formulario extends StatelessWidget {
         }
         // return splash screen
         return const Center(
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-          ),
+          child: BottomLoader(),
         );
       },
     );
@@ -137,7 +134,7 @@ class __SignInFormState extends State<_SignInForm> {
         builder: (context, state) {
           if (state is LoginLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: BottomLoader(),
             );
           }
           return Form(
@@ -169,7 +166,7 @@ class __SignInFormState extends State<_SignInForm> {
                   ),
                   TextFormField(
                     decoration: InputDecorations.authInputDecoration(
-                        hintText: 'ejemplo: Password!1',
+                        hintText: 'ejemplo: Password1!',
                         labelText: 'Password',
                         prefixIcon: Icons.password_outlined),
                     keyboardType: TextInputType.visiblePassword,

@@ -1,4 +1,5 @@
 import 'package:solo_bajos/models/login.dart';
+import 'package:solo_bajos/models/register.dart';
 
 class User {
   String? id;
@@ -44,6 +45,17 @@ class User {
     roles = response.roles;
     createdAt = response.createdAt;
     token = response.token;
+  }
+
+  User.fromRegisterResponse(RegisterResponse response) {
+    id = response.id;
+    username = response.username;
+    fullName = fullName;
+    email = response.email;
+    avatar = response.avatar;
+    enabled = response.enabled;
+    roles = response.roles;
+    createdAt = response.createdAt;
   }
 
   Map<String, dynamic> toJson() {
