@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                 child: Text('Login',
                     style: Theme.of(context).textTheme.headlineLarge)),
             const CardContainer(
-              child: formulario(),
+              child: Formulario(),
             ),
             const SizedBox(height: 30),
             const Text('Registrar una nueva cuenta',
@@ -40,8 +40,8 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class formulario extends StatelessWidget {
-  const formulario({
+class Formulario extends StatelessWidget {
+  const Formulario({
     super.key,
   });
 
@@ -198,7 +198,7 @@ class __SignInFormState extends State<_SignInForm> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 80, vertical: 20),
                         child: const Text(
-                          'LOG IN',
+                          'ACCEDER',
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
