@@ -1,6 +1,6 @@
 # SOLOBAJOS
 
-<img src="https://img.shields.io/badge/Flutter-3.7.5-green"/> <img src="https://img.shields.io/badge/Dart-2.19.2-blue"/> <img src="https://img.shields.io/badge/Java-17.0-brightgreen"/>
+<img src="https://img.shields.io/badge/Flutter-3.7.5-green"/> <img src="https://img.shields.io/badge/Dart-2.19.2-blue"/> 
 
 <img src="https://docs.flutter.dev/assets/images/flutter-logo-sharing.png" width="500" alt="Spring Logo"/>
  
