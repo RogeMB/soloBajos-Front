@@ -6,7 +6,7 @@ import 'package:solo_bajos/models/register.dart';
 import 'package:solo_bajos/services/localstorage_service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-/*
+
 //import '../exceptions/exceptions.dart';
 import 'package:solo_bajos/models/models.dart';
 import 'package:solo_bajos/repositories/repositories.dart';
@@ -40,4 +40,3 @@ class JwtRegisterService extends RegisterService {
     return User.fromRegisterResponse(response);
   }
 }
-*/
