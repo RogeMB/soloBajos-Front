@@ -20,7 +20,7 @@ Realiza un *git clone* de la siguiente dirección:
 *https://github.com/RogeMB/soloBajos-Back*
 
 ```console
-git clone https://github.com/RogeMB/Trianafy.git
+git https://github.com/RogeMB/soloBajos-Front.git
 ```
 
 Dirígete hasta la carpeta:
