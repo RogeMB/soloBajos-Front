@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.solo_bajos">
-    <application
+   <application
         android:label="solo_bajos"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

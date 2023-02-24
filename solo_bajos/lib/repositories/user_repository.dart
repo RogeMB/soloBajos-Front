@@ -16,10 +16,10 @@ class UserRepository {
     _client = getIt<RestAuthenticatedClient>();
   }
 
-  Future<dynamic> me() async {
+  Future<dynamic> profile() async {
     String url = "/user/profile";
 
     var jsonResponse = await _client.get(url);
-    return UserResponse.fromJson(jsonDecode(jsonResponse));
+    return User.fromJson(jsonDecode(jsonResponse));
   }
 }
