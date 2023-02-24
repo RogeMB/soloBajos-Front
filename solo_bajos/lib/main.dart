@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
     });*/
   }
 
-  MyApp() {
+  MyApp({super.key}) {
     _instance = this;
   }
 
@@ -56,10 +56,9 @@ class MyApp extends StatelessWidget {
     //GlobalContext.ctx = context;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Authentication Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
-      ),
+      title: 'Authentication SoloBajos',
+      theme:
+          ThemeData.light().copyWith(scaffoldBackgroundColor: Colors.grey[300]),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           GlobalContext.ctx = context;
@@ -70,7 +69,7 @@ class MyApp extends StatelessWidget {
             );
           }
           // otherwise show login page
-          return LoginPage();
+          return const LoginPage();
         },
       ),
     );
