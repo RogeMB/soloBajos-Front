@@ -38,7 +38,7 @@ class User {
   User.fromLoginResponse(LoginResponse response) {
     id = response.id;
     username = response.username;
-    fullName = fullName;
+    fullName = response.fullName;
     email = response.email;
     avatar = response.avatar;
     enabled = response.enabled;
